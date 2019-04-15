@@ -19,8 +19,10 @@
     },
     "homepage": "https://github.com/jrxavier/restful-api#readme",
     "dependencies": {
+        "apollo-fetch": "^0.7.0",
         "body-parser": "^1.18.3",
         "express": "^4.16.4",
+        "graphql": "^14.2.1",
         "mongoose": "^5.5.1",
         "nodemon": "^1.18.11"
     },
