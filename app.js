@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 const Book = require('./models/bookModel');
 //const bookRouter = require('./routes/bookRouter')(Book);
 const opcoesApoioRouter = require('./routes/opcoesApoioRouter')();
+const listaDominiosRouter = require('./routes/listaDominiosRouter')();
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 
 //app.use('/api', bookRouter);
 app.use('/api', opcoesApoioRouter);
+app.use('/api', listaDominiosRouter);
 
 app.listen(port, () => {
     console.log(`Running on port ${port}`);
