@@ -10,29 +10,13 @@ function routes() {
    });
    var retorno = null;
    const query = `
-      query Dominios($vIdentificador: String) {
-         listaDominios(identificador: $vIdentificador) { 
-            identificador
-            descricao
-            tipo
-            ativo
-            ordem
-            valores {
-              identificador
-              descricao
+      query Titulos {
+         listaTitulos { 
+            valor
             }
-         }
       }`;
-   opcoesRouter.route("/dominios").get((req, res) => {
-      const param = {};
-
-      if (req.query.identificador) {
-         param.identificador = req.query.identificador;
-         console.log(param.porte);
-      }
-
-      let variables = {};
-      variables.vIdentificador = param.identificador;
+   opcoesRouter.route("/titulos").get((req, res) => {
+      const variables = {};
 
       fetch({
             query,
@@ -40,7 +24,7 @@ function routes() {
          })
          .then(result => {
             console.log("Valor de retorno: " + result.data);
-            retorno = result.data.listaDominios;
+            retorno = result.data.listaTitulos;
             return res.status(201).json(retorno);
          })
          .catch(error => {
